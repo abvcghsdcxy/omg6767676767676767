@@ -24,14 +24,17 @@ end
 local tycoon = getTycoon()
 if not tycoon then return end
 statsCategory:add_label("Tycoon: \t\t\t" .. tycoon.Name)
-local cashLbl = statsCategory:add_label("Money:   \t\t\t" .. tostring(Players.LocalPlayer.leaderstats.Cash.Value))
+
+local moneyVal = string.gsub(plr.leaderstats.Cash.Value, "\u{200B}", "")
+local cashLbl = statsCategory:add_label("Money:   \t\t\t" .. tostring(moneyVal))
 rbxcli.display_notification("Found tycoon: " .. tostring(tycoon.Name), 10)
 
 task.spawn(function()
     while task.wait(5) do
-        pcall(
-            function() cashLbl:set_text("Money:   \t\t\t" .. tostring(Players.LocalPlayer.leaderstats.Cash.Value)) end
-        )
+        pcall(function()
+            local moneyVal = string.gsub(plr.leaderstats.Cash.Value, "\u{200B}", "")
+            cashLbl:set_text("Money:   \t\t\t" .. tostring(moneyVal))
+        end)
     end
 end)
 
