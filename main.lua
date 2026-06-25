@@ -58,6 +58,7 @@ miscCategory:add_button("Max upgrades", function()
     if permUpgrades then
         permUpgrades:SetAttribute("BuyNext", 1)
         permUpgrades:SetAttribute("Manage", 1)
+        permUpgrades:SetAttribute("UpgradeStack", 2)
         permUpgrades:SetAttribute("WalkSpeed", 2)
     end
 end)
