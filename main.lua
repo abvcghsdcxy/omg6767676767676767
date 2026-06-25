@@ -52,7 +52,7 @@ end)
 
 local miscCategory = tab:add_category("Misc")
 miscCategory:add_button("Max upgrades", function()
-    local tycoonValues = tycoon:FindFirstAncestor("Values")
+    local tycoonValues = tycoon:FindFirstChild("Values")
     local tycoonPowers = tycoonValues and tycoonValues:FindFirstChild("Powers")
     local permUpgrades = tycoonPowers and tycoonPowers:FindFirstChild("Permanent")
     if permUpgrades then
