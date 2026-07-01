@@ -33,19 +33,19 @@ cat:add_slider("Shoot Cooldown", 0, 500, 100, Enum.SliderValueType.Int, function
 	for _, sc in pairs(tables.ShootCooldown) do
 		sc.tbl.ShootCooldown = (sc.original * (n / 100))
 	end
-end)
+end):set_postfix(" %")
 
 cat:add_slider("Shoot Spread", 0, 500, 100, Enum.SliderValueType.Int, function(n)
 	for _, sc in pairs(tables.ShootSpread) do
 		sc.tbl.ShootSpread = (sc.original * (n / 100))
 	end
-end)
+end):set_postfix(" %")
 
 cat:add_slider("Shoot Recoil", 0, 500, 100, Enum.SliderValueType.Int, function(n)
 	for _, sc in pairs(tables.ShootRecoil) do
 		sc.tbl.ShootRecoil = (sc.original * (n / 100))
 	end
-end)
+end):set_postfix(" %")
 
 local device_spoofer = tab:add_category("Device Spoofer")
 local devices = { "MouseKeyboard", "VR", "Touch", "Gamepad" }
