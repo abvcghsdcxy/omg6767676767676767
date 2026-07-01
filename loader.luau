@@ -2,6 +2,7 @@
 
 local games = {
 	[6035872082] = "rivals.luau",
+	[7395930870] = "sell_lemons.luau",
 }
 
 rbxcli.loadstring(game:GetService("HttpService"):RequestAsync({
