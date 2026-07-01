@@ -1,3 +1,11 @@
+--!nolint CommentDirective
+--!grant Hybrid
+--!grant NetworkExploits
+
+repeat
+	task.wait(1)
+until rbxcli.is_permission_granted("Hybrid")
+
 local gui = rbxcli_gui
 pcall(function()
 	gui.remove_tab("Rivals")
@@ -7,7 +15,6 @@ local tables = { ShootCooldown = {}, ShootSpread = {}, ShootRecoil = {} }
 
 print("starting")
 for _, v in gc.getgc("table") do
-	local val = v.Value
 	if v.Value:ContainsKey("ShootCooldown") then
 		table.insert(tables.ShootCooldown, { tbl = v.Value, original = v.Value.ShootCooldown })
 	end
@@ -38,4 +45,15 @@ cat:add_slider("Shoot Recoil", 0, 500, 100, Enum.SliderValueType.Int, function(n
 	for _, sc in pairs(tables.ShootRecoil) do
 		sc.tbl.ShootRecoil = (sc.original * (n / 100))
 	end
+end)
+
+local device_spoofer = tab:add_category("Device Spoofer")
+local devices = { "MouseKeyboard", "VR", "Touch", "Gamepad" }
+device_spoofer:add_dropdown("Device", { "MouseKeyboard", "VR", "Touch", "Gamepad" }, 1, function(d)
+	local Remotes = game:GetService("ReplicatedStorage"):FindFirstChild("Remotes")
+	local Replication = Remotes and Remotes:FindFirstChild("Replication")
+	local Fighter = Replication and Replication:FindFirstChild("Fighter")
+	local SetControls = Fighter and Fighter:FindFirstChild("SetControls")
+
+	rbxcli.fire_remote_event(SetControls, devices[d + 1])
 end)

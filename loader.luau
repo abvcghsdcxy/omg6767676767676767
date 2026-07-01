@@ -1,3 +1,4 @@
+--!nolint CommentDirective
 --!grant RuntimeLoadstring
 
 local games = {
