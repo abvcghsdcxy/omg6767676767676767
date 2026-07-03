@@ -1,0 +1,3 @@
+syntax = "Luau"
+collapse_simple_statement = "Always"
+indent_type = "Spaces"
