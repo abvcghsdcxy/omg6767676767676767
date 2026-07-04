@@ -6,7 +6,7 @@ local plr: Player = Players.LocalPlayer
 
 local char = plr.Character
 local hrp = char:FindFirstChild("HumanoidRootPart")
-plr.CharacterAdded:Connect(function(char: Model) hrp = char:FindFirstChild("HumanoidRootpart") end)
+plr.CharacterAdded:Connect(function(char: Model) hrp = char:FindFirstChild("HumanoidRootPart") end)
 
 local gui = rbxcli_gui
 
