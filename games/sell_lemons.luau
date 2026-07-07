@@ -74,6 +74,7 @@ miscCategory:add_button("Max upgrades", function()
         permUpgrades:SetAttribute("Manage", 1)
         permUpgrades:SetAttribute("UpgradeStack", 5)
         permUpgrades:SetAttribute("WalkSpeed", 5)
+        permUpgrades:SetAttribute("AutoFruit", 5)
     end
 end)
 
