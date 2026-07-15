@@ -66,23 +66,19 @@ while task.wait(cfg.collectServersDelay) do
         if not hrp then continue end
 
         for _, obj in plot:FindFirstChild("Objects"):GetChildren() do
-            local isServer = obj:FindFirstChild("Server") ~= nil
-            if not isServer then continue end
+            local isServer, touch = pcall(function() return obj.Primary.TouchInterest end)
+            if not (isServer and touch) then continue end
 
-            for _, v in obj:GetDescendants() do
-                if not v:IsA("TouchTransmitter") then continue end
-
-                if cfg.collectServersMethod == "touch" then
-                    rbxcli.fire_touch_interest(hrp, v.Parent, 0)
-                    task.wait()
-                    rbxcli.fire_touch_interest(hrp, v.Parent, 1)
-                    print("touched")
-                elseif cfg.collectServersMethod == "teleport" then
-                    local pos = hrp.Position
-                    if v.Parent:IsA("BasePart") then
-                        rbxcli.teleport_local_player(v.Parent.Position)
-                        rbxcli.teleport_local_player(pos)
-                    end
+            if cfg.collectServersMethod == "touch" then
+                rbxcli.fire_touch_interest(hrp, touch.Parent, 0)
+                task.wait()
+                rbxcli.fire_touch_interest(hrp, touch.Parent, 1)
+                print("touched")
+            elseif cfg.collectServersMethod == "teleport" then
+                local pos = hrp.Position
+                if touch.Parent:IsA("BasePart") then
+                    rbxcli.teleport_local_player(touch.Parent.Position)
+                    rbxcli.teleport_local_player(pos)
                 end
             end
         end
