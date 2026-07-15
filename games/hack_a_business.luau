@@ -77,8 +77,8 @@ while task.wait(cfg.collectServersDelay) do
             elseif cfg.collectServersMethod == "teleport" then
                 local pos = hrp.Position
                 if touch.Parent:IsA("BasePart") then
-                    rbxcli.teleport_local_player(touch.Parent.Position)
-                    rbxcli.teleport_local_player(pos)
+                    hrp.Position = touch.Parent.Position or pos
+                    hrp.Position = pos
                 end
             end
         end
