@@ -1,0 +1,9 @@
+{
+  "luau-lsp.platform.type": "roblox",
+  "luau-lsp.fflags.enableNewSolver": true,
+  "luau-lsp.types.definitionFiles": {
+    "rbxcli": "./types/rbxcli_docs.d.luau"
+  },
+  "luau-lsp.studioPlugin.enabled": false,
+  "luau-lsp.types.robloxSecurityLevel": "None"
+}
