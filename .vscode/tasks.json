@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Bundle wax",
+            "type": "shell",
+            "command": "lune",
+            "args": [
+                "run",
+                "wax",
+                "bundle",
+                "minify=true",
+                "output=\".bundle/bundled.luau\""
+            ]
+        }
+    ]
+}
