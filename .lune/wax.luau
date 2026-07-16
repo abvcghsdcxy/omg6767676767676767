@@ -1776,17 +1776,12 @@ function a(q)
         if not v then ah(u[1], 3) end
         return ak(u)
     end
-    local t = aw(
-        ag(
-            {},
-            {
-                __index = i,
-                __newindex = function(t, u, v) i[u] = v end,
-                __len = function() return #i end,
-                __iter = function() return ai, i end,
-            }
-        )
-    )
+    local t = aw(ag({}, {
+        __index = i,
+        __newindex = function(t, u, v) i[u] = v end,
+        __len = function() return #i end,
+        __iter = function() return ai, i end,
+    }))
     local u, v = aw({ version = ac, envname = ad, shared = t, script = am, require = ao }), r
     local function w(x, ...)
         local y, z, A =
