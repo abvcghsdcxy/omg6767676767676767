@@ -10,7 +10,9 @@
                 "wax",
                 "bundle",
                 "minify=true",
-                "output=\".bundle/bundled.luau\""
+                "output=\".bundle/bundled.luau\"",
+                "header=\"bundle/header.luau\"",
+                "ci-mode=true"
             ]
         }
     ]
